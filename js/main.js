@@ -9,8 +9,6 @@ var elNextbtn = document.querySelector('.nextbtn');
 var elDark = document.querySelector('.darkbtn');
 var elBody = document.querySelector('body');
 
-
-
 var key = '1368017a'
 
 let active = 1;
@@ -24,8 +22,6 @@ var renderApi = (arrey, node) => {
     node.innerHTML = ' '
 
     arrey.forEach((api) => {
-
-
 
         let elItem = document.createElement('li');
         let elImg = document.createElement('img');
@@ -51,18 +47,13 @@ var renderApi = (arrey, node) => {
 
         node.appendChild(elItem)
 
-
-
     })
-
 }
 elForm.addEventListener('submit', (evt) =>{
     evt.preventDefault()
 if (elInput.value !== ''){
     fetchs()
 console.log(active +=1);
-// 
-  
 }
 })
 
@@ -74,7 +65,6 @@ function fetchs() {
     }
 
     fetch(
-        // 'http://www.omdbapi.com/?apikey=1368017a&s='+ elInput.value
         `http://www.omdbapi.com/?apikey=${key}&s=${elInput.value}&page=${active}`
     )
         .then((render) => render.json())
@@ -94,9 +84,7 @@ function fetchs() {
                 elNextbtn.removeAttribute('disabled')
             }
         })
-
 }
-
 elPrivbtn.addEventListener('click',()=>{
     active--;
     fetchs()
